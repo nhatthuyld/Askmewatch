@@ -24,10 +24,89 @@ import junit.framework.Assert;
 public class AskMeWatch {
 	// Declare a static driver variable
 	private static WebDriver driver;
+	
+	String questionStep1 = "What is your watch knowledge level ?";
+	List<String> ListOptionsStep1 = Arrays.asList("I'm a watch novice", "I'm a watch enthusiast");
+	
+	String questionStep2 = "Who will wear this watch ?";
+	List<String> ListOptionsStep2_QN1 = Arrays.asList("A man", "A woman");
+	
+	String questionStep3_QN1 = "What kind of movement are you looking for ?";
+	List<String> ListOptionsStep3_QN1 = Arrays.asList("Mechanical", "Quartz", "Connected");
+	
+	String questionStep3a_QN1 = "What about the shape ?";
+	List<String> ListOptionsStep3a_QN1 = Arrays.asList("Round", "Rectangular", "Square");
+	
+	String questionStep4a_QN1 = "Which material do you prefer for the strap ? (QCM)";
+	List<String> ListOptionsStep4a_QN1 = Arrays.asList("Metal", "Fabric", "Leather","Rubber");
+	
+	String questionStep4_QN1 = "Design : which one inspires you best ?";
+	List<String> ListOptionsStep4_QN1 = Arrays.asList("Simple", "Complex");
+	
+	String questionStep5_QN1 = "What kind of watch are you interested in ?";
+	List<String> ListOptionsStep5_QN1 = Arrays.asList("Sporty", "Elegant", "Neo Vintage", "Jewelry");
+	
+	String questionStep6_QN1 = "The dial : which color(s) do you fancy ? (QCM)";
+	List<String> ListOptionsStep6_QN1 = Arrays.asList("BLUE", "BROWN", "BLACK", "WHITE", "GREY", "SILVER", "OPALINE","SKELETON", "OTHER");
+
+	String questionStep7_QN1 = "Which material do you prefer for the strap ?(QCM)";
+	List<String> ListOptionsStep7_QN1 = Arrays.asList("Metal", "Fabric", "Leather", "Rubber");
+	
+	String questionStep9_QN1 = "Last but not least, what is the most important criteria to you ?";
+	List<String> ListOptionsStep9_QN1 = Arrays.asList("Social media popularity", "brand_appeal", "Editor’s notation");
+
+	
+	String questionStep3_QN2 = "Watch size : what do you have in mind ?";
+	List<String> ListOptionsStep3a_QN2 = Arrays.asList("S : <36", "M : 36 à 40", "L: 40 à 44","XL: >44");
+	List<String> ListOptionsStep3b_QN2 = Arrays.asList("S : <32", "M : 32 à 36", "L: 36 à 40","XL: >40");
+
+	String questionStep4_QN2 = "What kind of movement are you looking for ?";
+	List<String> ListOptionsStep4_QN2 = Arrays.asList("Mechanical", "Quartz","Springdrive","Connected");
+	
+	String questionStep5a_QN2 = "What about the shape ?";
+	List<String> ListOptionsStep5a_QN2 = Arrays.asList("Round", "Rectangular","Square");
+	
+	String questionStep6a_QN2 = "Which material do you prefer for the strap ? (QCM)";
+	List<String> ListOptionsStep6a_QN2 = Arrays.asList("Metal", "Fabric","Leather","Rubber");
+
+	String questionStep5_QN2 = "Are in-house movements essential to you ?";
+	List<String> ListOptionsStep5_QN2 = Arrays.asList("Yes", "Not really important");
+	
+	String questionStep6_QN2 = "The dial : which color(s) do you fancy ? (QCM) ";
+	List<String> ListOptionsStep6_QN2 = Arrays.asList("BLUE", "BROWN", "BLACK", "WHITE", "GREY", "Beige", "Other","SKELETON");
+	
+	String questionStep7_QN2 = "What kind of functions would like to have ?";
+	List<String> ListOptionsStep7_QN2 = Arrays.asList("2/3 hands", "Chronograph", "GMT", "Diver","Moonphase","Great Complication");
+	
+	String questionStep8a_QN2 = "Which complication attracts you the most ? ";
+	List<String> ListOptionsStep7a_QN2 = Arrays.asList("Annual or perpetual calendar", "Chime or repeater", "Tourbillon","Equation of time","Rattrapante","Dead second");
+	
+	String questionStep8_QN2 = "What kind of watch are you interested in ?";
+	List<String> ListOptionsStep8_QN2 = Arrays.asList("Sporty", "Elegant", "Vintage", "Jewelry");
+	
+	String questionStep9_QN2 = "The case material would be : (QCM)";
+	List<String> ListOptionsStep10_QN2 = Arrays.asList("Steel", "Rose gold", "Yelow gold", "Grey/white gold","Gold and steel","Platinum","High-tech");
+	
+	String questionStep10_QN2 = "Last but not least, what is the most important criteria to you ?";
+	List<String> ListOptionsStep11_QN2 = Arrays.asList("Social media popularity", "Brand’s appeal", "Editor’s notation");
+	
+
+
+	
+	
+
+
+
+
+
+
+
+
+
 
 	@BeforeClass
 	public static void beforeClass() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\DucNGUYEN\\selenium\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
 		// WebDriver driver = new ChromeDriver();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -63,45 +142,38 @@ public class AskMeWatch {
 	public void testWatchNovice() throws InterruptedException {
 		String currentQuestion;
 		// step 1-choose novice option
-		List<String> ListOptionsStep1 = Arrays.asList("I'm a watch novice", "I'm a watch enthusiast");
+		
 		currentQuestion = DoSteps("What is your watch knowledge level ?", ListOptionsStep1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 2-choose man option
-		List<String> ListOptionsStep2 = Arrays.asList("A man", "A woman");
-		currentQuestion = DoSteps("Who will wear this watch ?", ListOptionsStep2, 1);
+		currentQuestion = DoSteps("Who will wear this watch ?", ListOptionsStep2_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 3-choose merchanical option
-		List<String> ListOptionsStep3 = Arrays.asList("Mechanical", "Quartz", "Connected");
-		currentQuestion = DoSteps("What kind of movement are you looking for ?", ListOptionsStep3, 1);
+		currentQuestion = DoSteps("What kind of movement are you looking for ?", ListOptionsStep3_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 4-choose simple option
-		List<String> ListOptionsStep4 = Arrays.asList("Simple", "Complex");
-		currentQuestion = DoSteps("Design : which one inspires you best ?", ListOptionsStep4, 1);
+		currentQuestion = DoSteps("Design : which one inspires you best ?", ListOptionsStep4_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 5-choose sporty option
-		List<String> ListOptionsStep5 = Arrays.asList("Sporty", "Elegant", "Neo Vintage", "Jewelry");
-		currentQuestion = DoSteps("What kind of watch are you interested in ?", ListOptionsStep5, 1);
+		currentQuestion = DoSteps("What kind of watch are you interested in ?", ListOptionsStep5_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 6-choose blue option
-		List<String> ListOptionsStep6 = Arrays.asList("BLUE", "BROWN", "BLACK", "WHITE", "GREY", "SILVER", "OPALINE",
-				"SKELETON", "OTHER");
-		currentQuestion = DoSteps("The dial : which color(s) do you fancy ? (MCQ)", ListOptionsStep6, 1);
+		currentQuestion = DoSteps("The dial : which color(s) do you fancy ? (MCQ)", ListOptionsStep6_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
 		// step 7-choose METAL option
-		List<String> ListOptionsStep7 = Arrays.asList("Metal", "Fabric", "Leather", "Rubber");
-		currentQuestion = DoSteps("Which material do you prefer for the strap ? (MCQ)", ListOptionsStep7, 1);
+		currentQuestion = DoSteps("Which material do you prefer for the strap ? (MCQ)", ListOptionsStep7_QN1, 1);
 		// click next button
 		clickButtonCss("[id='next-ans']");
 
@@ -110,8 +182,7 @@ public class AskMeWatch {
 		clickButtonCss("[id='next-ans']");
 
 		// step 9-choose Social media popularity option
-		List<String> ListOptionsStep9 = Arrays.asList("Social media popularity", "brand_appeal", "Editor’s notation");
-		currentQuestion = DoSteps("Last but not least, what is the most important criteria to you ?", ListOptionsStep9,
+		currentQuestion = DoSteps("Last but not least, what is the most important criteria to you ?", ListOptionsStep9_QN1,
 				1);
 
 		int getResult = getResult();
